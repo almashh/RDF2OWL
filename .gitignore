@@ -1,3 +1,6 @@
 .*
+data/
+out/
+RDF2OWL.iml
 !/.gitignore
 
