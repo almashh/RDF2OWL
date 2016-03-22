@@ -21,7 +21,7 @@ public class ConvertRDF {
     private static String outDir = "/home/alshahmm/Documents/OntologyProject/RDF2OWL/data/RDFOnt.owl";
     //private static PrefixManager pm = new DefaultPrefixManager("http://www.aber-owl.net/ontologies/#");
 
-    public static void main(String[] args){
+    public void run(String[] args) {
 
         try{
             owlmanager = OWLManager.createOWLOntologyManager();
