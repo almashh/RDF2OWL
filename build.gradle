@@ -32,6 +32,8 @@ configurations {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-devtools')
 	compile('org.semanticweb.elk:elk-owlapi:0.4.3')
     compile('net.sourceforge.owlapi:owlapi-api:4.1.4')
     compile('net.sourceforge.owlapi:owlapi-apibinding:4.1.4')
@@ -47,4 +49,8 @@ dependencies {
 
 task wrapper(type: Wrapper) {
 	gradleVersion = '2.9'
+}
+
+bootRun {
+    addResources = true
 }

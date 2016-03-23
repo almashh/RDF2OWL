@@ -11,5 +11,6 @@ public class Rdf2owlApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(Rdf2owlApplication.class, args);
+        System.out.println("Here we can start initializing our OWL functions");
 	}
 }
