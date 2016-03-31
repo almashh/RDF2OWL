@@ -6,6 +6,7 @@ import java.io.File;
 
 
 import org.apache.jena.rdf.model.*;
+import org.apache.jena.sparql.SystemARQ;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.reasoner.*;
@@ -18,7 +19,7 @@ public class ConvertRDF {
     private  static OWLDataFactory owlfact;
     private static OWLOntology ont;
     private static OWLOntology ont1;
-    private static String outDir = "/home/alshahmm/Documents/OntologyProject/RDF2OWL/data/RDFOnt.owl";
+    private static String outDir = "/home/mona/Documents/OntoProject/RDF2OWL/data/RDFOnt.owl";
     //private static PrefixManager pm = new DefaultPrefixManager("http://www.aber-owl.net/ontologies/#");
 
     public static void main(String[] args){
@@ -35,9 +36,11 @@ public class ConvertRDF {
 
         Model model = ModelFactory.createDefaultModel();
         model.read("data/model.rdf");
+        //model.read("data/ex1","TURTLE");
         StmtIterator iter = model.listStatements();
         while (iter.hasNext()) {
             Statement stmt      = iter.nextStatement();
+            System.out.print(stmt.toString());
             Resource subject   = stmt.getSubject();
             Property  predicate = stmt.getPredicate();
             RDFNode   object    = stmt.getObject();
