@@ -37,8 +37,10 @@ public class ParsePattern {
         final OWLParser parser = new ManchesterOWLSyntaxParserFactory().createParser( manager );
         OWLOntologyMerger merger = new OWLOntologyMerger(manager);
 
+        //final OWLOntology new_ontology = merger.createMergedOntology(manager,IRI.create("http://aber-owl.net/RDF2OWL.owl"));
 
-        //test SPARQ Query
+
+        //SPARQ Query
         String sparqlQuery = "PREFIX GO: <http://purl.uniprot.org/go/>\n" +
                 "PREFIX taxon:<http://purl.uniprot.org/taxonomy/>\n" +
                 "PREFIX up: <http://purl.uniprot.org/core/>\n" +
@@ -55,7 +57,6 @@ public class ParsePattern {
         ResultSetFormatter.out(results2);
 
 
-        //iterate over SPARQ results and Parse using Manchester Syntax format
         while(results.hasNext()) {
             QuerySolution qs = results.next();
             String str1 = qs.get(classList.get(0)).toString();
@@ -69,8 +70,10 @@ public class ParsePattern {
             String first2 = str2.substring(0,j);
             String second2 = str2.substring(j+1);
             String proStr = "<www.somewhere.net/>";
+            //System.out.println(first2);
+            //System.out.println(second2);
 
-            //example of simple Relational Pattern
+            //Relational Pattern
             String input1 ="Prefix: pr1: <"+first1+"/>\n" +
                     "Prefix: pr2: <"+first2+"/>\n"+
                     "Prefix: pr3: "+proStr+"\n"+
@@ -84,6 +87,8 @@ public class ParsePattern {
                 parser.parse(new StreamDocumentSource(in), ontology);
             }
         }
+
+        //System.out.print(ResultSetFormatter.asText(results,query));
 
 
         System.out.println( "All axioms:" );
